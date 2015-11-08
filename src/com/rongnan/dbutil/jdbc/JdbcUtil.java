@@ -1,4 +1,4 @@
-package com.rongnan.dbutil;
+package com.rongnan.dbutil.jdbc;
 
 import java.lang.reflect.Field;
 import java.sql.*;
@@ -16,7 +16,7 @@ public class JdbcUtil  {
 	private final String DBUSERPASSWORD = "rongnan";
 	
 	private final String  MYSQLDRIVER = "com.mysql.jdbc.Driver";
-	private final String  MYSQLURL = "jdbc:mysql://localhost:3306/rongnan_db";
+	private final String  MYSQLURL = "jdbc:mysql://localhost:3306/rongnan_db?useUnicode=true&characterEncoding=utf-8";
 	
 	private Connection connection;
 	private PreparedStatement pstmt;
@@ -29,10 +29,11 @@ public class JdbcUtil  {
 		try {
 			
 			Class.forName(MYSQLDRIVER);
-			System.out.print("mysql注册驱动成功");
+			System.out.println("mysql注册驱动成功");
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
+			System.out.println("mysql注册驱动失败了！！！！！！》》》》》》");
 			e.printStackTrace();
 		}
 			
@@ -251,23 +252,23 @@ public class JdbcUtil  {
 	
 	
 	
-	public static void main(String[] args) throws SQLException {
-		
-		JdbcUtil m = new JdbcUtil();
-		Connection c = m.getConnetion();
-		String sql = "insert into pro(pro_id,pro_price,pro_img) values(?,?,?)";
-		List<Object> test = new ArrayList<Object>();
-		
-		test.add(new String("234"));
-		test.add(new Double("12.5"));
-		test.add(new String("c:/image/first.jpg"));
-		
-		m.updateByPreparedStatment(sql, test);
-		
-		m.releaseConn();
-		
-		
-	}
+//	public static void main(String[] args) throws SQLException {
+//		
+//		JdbcUtil m = new JdbcUtil();
+//		Connection c = m.getConnetion();
+//		String sql =  "insert into user(user_id,password) values(?,?)";
+//		List<Object> test = new ArrayList<Object>();
+//	
+//		test.add(new String("testagin"));
+//		test.add(new Double("23333333"));
+//		
+//		
+//		m.updateByPreparedStatment(sql, test);
+//	
+//		m.releaseConn();
+//	
+//	
+//	}
 	
 	
 	

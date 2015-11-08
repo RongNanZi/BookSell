@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+ 
+<link href="css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+
+<body>
+<script language=javascript>
+function fun(){
+
+var str = "11112345";
+var doc = new xml( str );
+
+alert(doc);
+}
+//创建一个dom对象
+
+function xml(str){
+	
+if(window.DOMParser)//firefox内核的浏览器	
+	{
+var p = new DOMParser();	
+	return p.parseFromString( str, "text/xml" );
+
+}
+
+else
+
+return false;
+}
+
+</script>
+var doc = new ActiveXObject("Msxml2.DOMDocument");
+oc.load("comment.xml");
+
+<script language=javascript>
+function fun2(){
+//var doc = new ActiveXObject("Msxml2.DOMDocument");
+//oc.load("comment.xml");
+
+	//var root = doc.createElement("comment");
+
+	
+xmlDoc=loadXMLDoc("comment.xml");
+document.write(xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue + "<br>");
+document.write(xmlDoc.getElementsByTagName("author")[0].childNodes[0].nodeValue + "<br>");
+document.write(xmlDoc.getElementsByTagName("year")[0].childNodes[0].nodeValue);
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button onClick="fun2()">dian</button>
+<p><strong>注意：</strong> Internet Explorer 10、Firefox、Chrome 和 Safari 支持 maxlength 属性。Opera 或者 Internet Explorer 9 及之前的版本不支持 textarea 标签的 maxlength 属性。
+</p>
+
+</body>
+</html>

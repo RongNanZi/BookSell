@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html xmlns:ice="http://ns.adobe.com/incontextediting">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	
+ 
+<link href="css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+function fun(){
+  var dt=new Date();
+     
+//alert("the textarea is"+$("#comment").val(;
+$("#comment").val(dt.toLocaleString());
+//local.reload();
+}
+
+</script>
+	
+</head>
+
+<body>
+
+    <textarea id="comment"style="width:100%" rows="10">写下你对本店的建议与意见：</textarea>
+	
+<div class="container">
+	<button type="button" class="btn btn-success" onClick="fun()">购买</button>
+</div>
+  <!-- end .container --></div>
+</body>
+</html>
