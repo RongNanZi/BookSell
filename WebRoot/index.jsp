@@ -7,10 +7,7 @@ String path = request.getContextPath();
 <html lang="cn-zh">
  <head>
   <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
+  
   <title>Document</title>
 
 <script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
@@ -21,13 +18,19 @@ String path = request.getContextPath();
 
  </head>
  <body>
- 	<iframe name="head" src="<%=path%>/head.jsp" frameborder="0" scrolling="no" height="200"width="100%">			</iframe>
- 
- 
-	<iframe name="body" src="<%=path%>/indexBody.jsp" frameborder="0" scrolling="no" width="100%"height="800">			</iframe>
-	
-	<iframe name="foot" src="foot.jsp" frameborder="0" width="100%">		</iframe>
-						
+ 		<div>
+		<iframe name="head" src="head.jsp" frameborder="0" scrolling="no" height="100"width="100%">			</iframe>
+		</div>
+		
+		<br >
+		<div>
+		<iframe	name="body" src="indexBody.jsp" frameborder="0"	width="100%" height="600">		</iframe>
+		</div>
+		<br >
+		<div>
+		<iframe name="foot" src="foot.jsp" frameborder="0" width="100%">		</iframe>
+		</div>
+		
 		
 
 </body>

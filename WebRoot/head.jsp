@@ -40,6 +40,7 @@ logOut = "注销";
 			parent.location.href = "register.jsp";
 		}
 		
+		
 	}
 	function fun3() {
 		
@@ -65,7 +66,7 @@ logOut = "注销";
 					<a class="brand" href="#">茸南购书网</a></li>
 						<div class="nav-collapse collapse navbar-responsive-collapse">
 							<ul class="nav">
-								<li><a class="active" href="/main.jsp">HOME</a></li>
+								<li> <a  href="javascript:parent.location.href='main.jsp';"><class="active">HOME</a></li>
 								<li class="dropdown"><a class="dropdown-toggle"		data-toggle="dropdown" href="#">商品分类 </a>
 									<ul class="dropdown-menu">					
 										<form>

@@ -55,6 +55,21 @@ public class JdbcUtil  {
 		
 		return connection;
 	}
+	
+	public boolean deleteByBatch(String[] sql) throws SQLException{
+		boolean flag = false;
+		stmt = connection.createStatement();
+		if(sql!=null){
+			for(int i=0;i<sql.length;i++){
+				stmt.addBatch(sql[i]);
+			}
+		}
+		int[] count = stmt.executeBatch();
+		if(count!=null){
+			flag = true;
+		}
+		return flag;
+	}
 	//update the SQL database
 	public boolean updateByPreparedStatment(String sql,
 											List<Object> paraments) 

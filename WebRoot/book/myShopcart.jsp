@@ -5,6 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 String userName = (String)session.getAttribute("userName");
 List<Map<String, Object>> list = (List<Map<String, Object>>)request.getAttribute("List");
+float sum=0;
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -26,9 +27,22 @@ List<Map<String, Object>> list = (List<Map<String, Object>>)request.getAttribute
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
 	
 	<link href="css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" >
+	
+	function funpay(){
+		
+		alert("你已经买了购物车的东西！！");
+		parent.location.href = "servlet/DleallAction";
+	}
+	
+	
+	</script>
   </head>
+  	<div>
   	<iframe name="head" src="<%=path %>/head.jsp" frameborder="0" scrolling="no" height="40"width="100%">			</iframe>
-		<div  align="left" width="61%">
+	</div>
+		<div  class="container" width="61%">
 			<br>
 				<button type="button" class="btn btn-success"> <%= userName%>的购物车：</button>
 			<br>
@@ -44,10 +58,20 @@ List<Map<String, Object>> list = (List<Map<String, Object>>)request.getAttribute
 	   			</div>
 	   			<div class="span3">
 	   			
+	   			<a href="servlet/DelCartAction?bookid=<%= map.get("id")%>" ><button  class="btn btn-warning"> 删除</button></a>
 	   			</div>
 	   		</div>
-	   		<% } %>
-		
+	   		<%	
+	   		
+	   		float one = (float)map.get("price"); 
+	   		sum+= one;
+	   		} %>
+			<br>
+			<br>
+			<div class="center">
+			<strong>总价：</strong>&nbsp;&nbsp;<%=sum %>&nbsp;&nbsp;&nbsp;&nbsp;<button  onclick= funpay() class="btn btn-danger">结算</button>
+			</div>
+			
 		</div>
   <body>
     

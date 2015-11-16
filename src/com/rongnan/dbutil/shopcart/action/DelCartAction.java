@@ -11,16 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rongnan.dbutil.shopcart.dao.ShopcartDao;
-import com.rongnan.dbutil.shopcart.service.ShopcartService;
+import com.rongnan.dbutil.shopcart.dao.DelCartDao;
 
-public class Shopcart extends HttpServlet {
+public class DelCartAction extends HttpServlet {
 
-	private ShopcartService service;
+	private DelCartDao service;
 	/**
 	 * Constructor of the object.
 	 */
-	public Shopcart() {
+	public DelCartAction() {
 		super();
 	}
 
@@ -45,22 +44,7 @@ public class Shopcart extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		String keystring = request.getParameter  ("userid");
-		System.out.println("entry in the shopcart servlet! key ="+keystring);
-		
-		List<Map<String,Object>> mlist = new ArrayList<Map<String,Object>>();	
-		
-		mlist = service.view(keystring);
-		System.out.println("the result is "+mlist.isEmpty());
-		
-		request.setAttribute("List", mlist);
-		request.getRequestDispatcher("/book/myShopcart.jsp").forward(request, response);
-		
-		out.flush();
-		out.close();
+		this.doPost(request, response);
 	}
 
 	/**
@@ -75,24 +59,18 @@ public class Shopcart extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		boolean flag = false;
-		response.setContentType("text/html");
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
+
+		String path = request.getContextPath();
+		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		
-		List<Object> add2cart = new ArrayList();
-		
-		add2cart.add((String)request.getParameter("username"));
-		add2cart.add((String)request.getParameter("bookid"));
-		
-		flag = service.add(add2cart);
-		
-		if(flag) 
-			out.write("true");
-		else 
-			out.write("false");
-		
+		String[] keystring = new String[]{(String)request.getParameter("bookid")};
+		String suer = (String) request.getSession().getAttribute("userName");
+		System.out.println("entry in the Del servlet! "+suer+"---id="+(String)request.getParameter("bookid"));
+		boolean flag = service.del(keystring,suer);
+		if (flag) {
+			response.sendRedirect(path+"/servlet/Shopcart?userid="+suer);
+		}
+			
 		
 		out.flush();
 		out.close();
@@ -105,7 +83,7 @@ public class Shopcart extends HttpServlet {
 	 */
 	public void init() throws ServletException {
 		// Put your code here
-		service = new ShopcartDao();
+		service=  new DelCartDao();
 	}
 
 }

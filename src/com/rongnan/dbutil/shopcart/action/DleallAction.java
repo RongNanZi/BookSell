@@ -2,25 +2,21 @@ package com.rongnan.dbutil.shopcart.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rongnan.dbutil.shopcart.dao.ShopcartDao;
-import com.rongnan.dbutil.shopcart.service.ShopcartService;
+import com.rongnan.dbutil.shopcart.dao.DelallDao;
 
-public class Shopcart extends HttpServlet {
+public class DleallAction extends HttpServlet {
 
-	private ShopcartService service;
+	private DelallDao service;
 	/**
 	 * Constructor of the object.
 	 */
-	public Shopcart() {
+	public DleallAction() {
 		super();
 	}
 
@@ -45,22 +41,7 @@ public class Shopcart extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		String keystring = request.getParameter  ("userid");
-		System.out.println("entry in the shopcart servlet! key ="+keystring);
-		
-		List<Map<String,Object>> mlist = new ArrayList<Map<String,Object>>();	
-		
-		mlist = service.view(keystring);
-		System.out.println("the result is "+mlist.isEmpty());
-		
-		request.setAttribute("List", mlist);
-		request.getRequestDispatcher("/book/myShopcart.jsp").forward(request, response);
-		
-		out.flush();
-		out.close();
+		this.doPost(request, response);
 	}
 
 	/**
@@ -75,24 +56,17 @@ public class Shopcart extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		boolean flag = false;
-		response.setContentType("text/html");
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
+
+		String path = request.getContextPath();
+		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		List<Object> add2cart = new ArrayList();
-		
-		add2cart.add((String)request.getParameter("username"));
-		add2cart.add((String)request.getParameter("bookid"));
-		
-		flag = service.add(add2cart);
-		
-		if(flag) 
-			out.write("true");
-		else 
-			out.write("false");
-		
+		String suer = (String) request.getSession().getAttribute("userName");
+		System.out.println("entry in the Delall servlet! "+suer);
+		boolean flag = service.del(suer);
+		if (flag) {
+			response.sendRedirect(path+"/servlet/Shopcart?userid="+suer);
+		}
 		
 		out.flush();
 		out.close();
@@ -105,7 +79,7 @@ public class Shopcart extends HttpServlet {
 	 */
 	public void init() throws ServletException {
 		// Put your code here
-		service = new ShopcartDao();
+		service=new DelallDao();
 	}
 
 }

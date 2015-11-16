@@ -23,7 +23,7 @@ public class Books implements BookService {
 		String sql = "select * from book where (1=1) ";
 		StringBuffer temp = new StringBuffer(sql);
 		if(!params.isEmpty()&params!="")
-		temp.append("and name='"+params+"';");
+		temp.append("and name like '%"+params+"%';");
 		System.out.println(temp.toString());
 		
 		try {

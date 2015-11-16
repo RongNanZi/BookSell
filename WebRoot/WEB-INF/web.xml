@@ -39,6 +39,20 @@
     <servlet-name>CommentAction</servlet-name>
     <servlet-class>com.rongnan.dbutil.comment.action.CommentAction</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DelCartAction</servlet-name>
+    <servlet-class>com.rongnan.dbutil.shopcart.action.DelCartAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DleallAction</servlet-name>
+    <servlet-class>com.rongnan.dbutil.shopcart.action.DleallAction</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -69,6 +83,14 @@
     <servlet-name>CommentAction</servlet-name>
     <url-pattern>/servlet/CommentAction</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelCartAction</servlet-name>
+    <url-pattern>/servlet/DelCartAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DleallAction</servlet-name>
+    <url-pattern>/servlet/DleallAction</url-pattern>
+  </servlet-mapping>
    
        
     <filter>
@@ -77,8 +99,26 @@
     </filter>
     <filter-mapping>
         <filter-name>MainPageFilter</filter-name>
-        <url-pattern>/main.jsp</url-pattern>
-    </filter-mapping>
+        <url-pattern>/main.jsp</url-pattern> 
+        <url-pattern>/book/myShopcart.jsp</url-pattern>  
+        <url-pattern>/comment.jsp</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		
+    </filter-mapping>  
+        
+       
+        
+   
+         
+        
+         
+    
+    
+     
+     
+     
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

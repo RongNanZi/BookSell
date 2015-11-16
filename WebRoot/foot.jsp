@@ -35,7 +35,7 @@ String path = request.getContextPath();
 					<div class="span4">
 					</div>
 					<div class="span4" >
-						  <button type="button" class="btn btn-info" onClick = fun()>我要留言</button>
+						  <button type="button" class="btn btn-info" onClick = "fun()">我要留言</button>
 					</div>
 					<div class="span4">
 					</div>
@@ -46,7 +46,7 @@ String path = request.getContextPath();
 					<div class="span4">
 					</div>
 					<div class="span4">
-						 <address> <strong>Twitter, Inc.</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA 94107<br /> <abbr title="Phone">P:</abbr> (123) 456-7890</address>
+						 <address> <strong>史群东的书店, Inc.</strong><br /> 青岛胶州市委党校<br /> 山东<br /> <abbr title="Phone">P:</abbr> 18291474039</address>
 					</div>
 					<div class="span4">
 					</div>
@@ -57,7 +57,7 @@ String path = request.getContextPath();
 					<div class="span4">
 					</div>
 					<div class="span4">
-						 <address> <strong>Twitter, Inc.</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA 94107<br /> <abbr title="Phone">P:</abbr> (123) 456-7890</address>
+						 <address> 广告位招租</address>
 					</div>
 					<div class="span4">
 					</div>

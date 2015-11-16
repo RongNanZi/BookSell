@@ -49,16 +49,19 @@ List<Map<String, Object>> list = (List<Map<String, Object>>)request.getAttribute
 				  alert("购物车已经有了这本书！");
 		    }
 		  }
-		function fun2(b){
-			alert("你已经成功买入"+b);
+		function fun2(){
+			alert("你已经成功买入!");
 		}
 	
 	</script>
   </head>
   
   <body>
-   <iframe name="head" src="<%=path %>/head.jsp" frameborder="0" scrolling="no" height="40"width="100%">			</iframe>
-   <br>
+	  <div>
+	  <iframe name="head" src="<%=path %>/head.jsp" frameborder="0" scrolling="no" height="40"width="100%">			</iframe>
+	  </div>
+	   
+	   <br>
    <div> 
    		<% for(Map<String,Object> map:list){  %>
    		<div class="row-fluid" width="80%">
@@ -71,7 +74,7 @@ List<Map<String, Object>> list = (List<Map<String, Object>>)request.getAttribute
 	   			<small>  <%= map.get("detail") %></small>
    			</div>
    			<div class="span3">
-   				<button type="button" class="btn btn-success" onClick="fun2(<%= map.get("name")%>)">购买</button>
+   				<button type="button" class="btn btn-success" onClick="fun2()">购买</button>
    				<br>
    				<br>
    				<button type="button" class="btn btn-warning" onClick="fun(<%= map.get("id")%>)">加入购物车</button>

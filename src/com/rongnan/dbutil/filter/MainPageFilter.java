@@ -35,7 +35,7 @@ public class MainPageFilter implements Filter {
 		httpServletResponse.setCharacterEncoding("utf-8");
 		String username = (String)httpServletRequest.getSession().getAttribute("userName");
 		if (username==null) {
-			httpServletResponse.sendRedirect(path + "/index.jsp");
+			httpServletResponse.sendRedirect(path + "/login.jsp");
 		}
 		chain.doFilter(httpServletRequest, httpServletResponse);
 	}

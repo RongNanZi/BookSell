@@ -6,5 +6,5 @@ import java.util.Map;
 public interface ShopcartService {
 	public boolean add(List<Object> param);
 	public List<Map<String,Object>> view(String str);
-
+	
 }

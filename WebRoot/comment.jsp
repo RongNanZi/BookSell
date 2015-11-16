@@ -51,9 +51,9 @@ List<Map<String, Object>> list = (List<Map<String, Object>>)request.getAttribute
 </head>
 	
 	<body>
-	
+		<div>
 	   <iframe name="head" src="<%=path%>/head.jsp" frameborder="0" scrolling="no" height="200"width="100%">			</iframe>
-		
+		</div>
 		<div class="container">
 			<div  class="center" width="80%">
 		  	  <br>

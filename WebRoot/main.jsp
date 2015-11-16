@@ -20,13 +20,19 @@ String path = request.getContextPath();
 	<link href="css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<iframe name="head" src="<%=path %>/head.jsp" frameborder="0" scrolling="no" height="200"width="100%">			</iframe>
 		<div>
+		<iframe name="head" src="head.jsp" frameborder="0" scrolling="no" height="100"width="100%">			</iframe>
+		</div>
+		
+		<br >
+		<div>
+		<iframe	name="body" src="indexBody.jsp" frameborder="0"	width="100%" height="600">		</iframe>
 		</div>
 		<br >
-		<iframe	name="body" src="<%=path%>/indexBody.jsp" frameborder="0"	width="100%" height="800">		</iframe>
-		<br >
+		<div>
 		<iframe name="foot" src="foot.jsp" frameborder="0" width="100%">		</iframe>
+		</div>
+		
 	</body>
 </html>
  

@@ -43,8 +43,10 @@ String path = request.getContextPath();
 <link href="css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+	<div>
 	
 		<iframe name="head" src="<%=path%>/head.jsp" frameborder="0" scrolling="no" height="200"width="100%">			</iframe>
+	</div>
 <div class="container-fluid">
 	
 	<br>
