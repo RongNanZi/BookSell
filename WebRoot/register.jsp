@@ -75,6 +75,12 @@ String path = request.getContextPath();
 					<input id="userPassword" placeholder="Password" type="password" name="userPassword">
 				</div>
 			</div>
+			<div class="control-group">
+				<label class="control-label" for="reinputPassword" >重复密码：</label>
+				<div class="controls">
+					<input id="reuserPassword" placeholder="Password" type="password" name="reuserPassword">
+				</div>
+			</div>
 			
 			<div class="control-group">
 				<div class="controls">
